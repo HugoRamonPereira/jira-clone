@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'auth-bg': "url('./public/atlassian-auth-bg.svg')"
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

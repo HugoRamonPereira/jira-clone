@@ -12,16 +12,22 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { CircleAlert } from "lucide-react"
 
 const signinSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8, { message: 'Password too short' }).max(20, 'Password too long')
+  email: z.string().email({ message: 'Email is not valid' }),
+  password: z.string({ message: 'Password is required' }).min(8, { message: 'Password too short' }).max(20, 'Password too long')
 })
 
 type SigninSchema = z.infer<typeof signinSchema>
 
 export function Signin() {
-  const { register, handleSubmit } = useForm<SigninSchema>({ resolver: zodResolver(signinSchema) });
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors },
+    reset
+  } = useForm<SigninSchema>({ resolver: zodResolver(signinSchema) });
   
   async function signinHandler({ email, password }: SigninSchema) {
     await fetch('http://localhost:3000/auth/signIn', {
@@ -31,15 +37,16 @@ export function Signin() {
       },
       body: JSON.stringify({ email, password })
     })
+    reset();
   }
   return (
     <div className="w-full h-screen bg-green-200"> 
       <Card 
         className="w-full max-w-sm mx-auto translate-y-1/2"
       >      
-      <form onSubmit={handleSubmit(signinHandler)} >
+      <form onSubmit={handleSubmit(signinHandler)} noValidate >
           <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
+            <CardTitle className="text-2xl">Sign in</CardTitle>
             <CardDescription>
               Enter your email below to login to your account.
             </CardDescription>
@@ -50,19 +57,32 @@ export function Signin() {
               <Input 
                 id="email" 
                 type="email" 
-                placeholder="m@example.com" 
+                placeholder="Enter your email" 
                 {...register("email")} 
                 required 
               />
+              {errors.email && (
+                <p className="text-red-600 text-xs flex gap-1 items-center">
+                  <CircleAlert size={13} />
+                  {errors.email.message}
+                </p>
+              )}
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
               <Input 
                 id="password" 
                 type="password" 
-                required 
+                placeholder="Enter your password" 
                 {...register("password")} 
+                required 
               />
+              {errors.password && (
+                <p className="text-red-600 text-xs flex gap-1 items-center">
+                  <CircleAlert size={13} />
+                  {errors.password.message}
+                </p>
+              )}
             </div>
           </CardContent>
           <CardFooter>

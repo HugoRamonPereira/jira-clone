@@ -12,7 +12,8 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleAlert } from "lucide-react"
+import { CircleAlert, Mail, Lock } from "lucide-react"
+import { InputPassword } from "../../components/ui/input-password";
 
 const signinSchema = z.object({
   email: z.string().email({ message: 'Email is not valid' }),
@@ -58,6 +59,7 @@ export function Signin() {
                 id="email" 
                 type="email" 
                 placeholder="Enter your email" 
+                iconStart={<Mail size={14} />}
                 {...register("email")} 
                 required 
               />
@@ -70,10 +72,12 @@ export function Signin() {
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input 
+              <InputPassword 
                 id="password" 
                 type="password" 
                 placeholder="Enter your password" 
+                iconStart={<Lock size={14} />}
+                iconEnd
                 {...register("password")} 
                 required 
               />

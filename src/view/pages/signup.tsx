@@ -12,7 +12,8 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CircleAlert, UserPlus } from "lucide-react";
+import { CircleAlert, UserPlus, User, Mail, Lock } from "lucide-react";
+import { InputPassword } from "../../components/ui/input-password";
 
 const signupSchema = z.object({
   username: z.string().min(1, { message: 'Username is required'}),
@@ -57,6 +58,7 @@ export function Signup() {
                 id="username" 
                 type="text" 
                 placeholder="Enter your username" 
+                iconStart={<User size={15} />}
                 {...register("username")} 
               />
               {errors.username && (
@@ -72,6 +74,7 @@ export function Signup() {
                 id="email" 
                 type="email" 
                 placeholder="Enter your email" 
+                iconStart={<Mail size={14} />}
                 {...register("email")} 
                 required 
               />
@@ -84,10 +87,12 @@ export function Signup() {
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">Password</Label>
-              <Input 
+              <InputPassword 
                 id="password" 
                 type="password" 
                 placeholder="Enter your password" 
+                iconStart={<Lock size={14} />}
+                iconEnd
                 required 
                 {...register("password")} 
               />

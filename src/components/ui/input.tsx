@@ -12,7 +12,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="relative group">
         {iconStart && (
-          <span className="absolute left-2 top-3 text-gray-500 group-focus-within:text-gray-800">
+          <span className="absolute left-2 top-2.5 text-gray-500 group-focus-within:text-gray-800">
             {iconStart}
           </span>
         )}

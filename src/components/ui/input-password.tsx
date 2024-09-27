@@ -19,7 +19,7 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
     return (
       <div className="relative group">
         {iconStart && (
-          <span className="absolute left-2 top-3 text-gray-500 group-focus-within:text-gray-800">
+          <span className="absolute left-2 top-2.5 text-gray-500 group-focus-within:text-gray-800">
             {iconStart}
           </span>
         )}
@@ -35,7 +35,7 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
         {iconEnd && (
           <button
             type="button" 
-            className="cursor-pointer flex items-center text-gray-500 group-focus-within:text-gray-800 absolute right-2 top-3"
+            className="cursor-pointer flex items-center text-gray-500 group-focus-within:text-gray-800 absolute right-2 top-2.5"
             onClick={togglePasswordVisibility}
           >
             {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}

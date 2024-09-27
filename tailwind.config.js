@@ -53,7 +53,13 @@ export default {
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
   			}
-  		}
+  		},
+			fontFamily: {
+				"nauman-light": ['NaumanLight', 'sans-serif'],
+				"nauman-regular": ['Nauman', 'sans-serif'],
+				"nauman-demi-bold": ['NaumanDemiBold', 'sans-serif'],
+				"nauman-bold": ['NaumanBold', 'sans-serif']
+			},
   	}
   },
   plugins: [require("tailwindcss-animate")],

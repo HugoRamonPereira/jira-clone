@@ -38,7 +38,7 @@ const InputPassword = React.forwardRef<HTMLInputElement, InputPasswordProps>(
             className="cursor-pointer flex items-center text-gray-500 group-focus-within:text-gray-800 absolute right-2 top-2.5"
             onClick={togglePasswordVisibility}
           >
-            {showPassword ? <Eye size={16} /> : <EyeOff size={16} />}
+            {showPassword ? <Eye size={16} strokeWidth={1.5} /> : <EyeOff size={16} strokeWidth={1.5} />}
           </button>
         )}
       </div>

@@ -48,3 +48,7 @@ export default tseslint.config({
   },
 })
 ```
+
+Username: HRamonP
+Email: hramonp-dev@outlook.com
+Pass: HrP88!D3v

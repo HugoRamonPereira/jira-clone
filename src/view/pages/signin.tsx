@@ -16,9 +16,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CircleX, Mail, Lock, UserCheck } from "lucide-react"
 import { InputPassword } from "../../components/ui/input-password";
 import { Link, useNavigate } from "react-router-dom";
-import { Spinner } from "../components/spinner/spinner";
-import { signIn } from "../../services/sign-in";
+import { Spinner } from "../components/spinner";
 import { GreenCheck } from "../../assets/illustrations/green-check";
+import { signIn } from "../../services/sign-in";
 
 const signinSchema = z.object({
   email: z.string().email({ message: 'Email is not valid' }),
@@ -175,7 +175,11 @@ export function Signin() {
             </Link>
           </div>
           <Button 
-            className={circleBtn ? "w-fit rounded-full transition-all duration-300 px-1.5 bg-green-500" : "w-full flex gap-2 font-nauman-regular"}             
+            className={
+              circleBtn 
+              ? "w-fit rounded-full transition-all duration-300 px-2.5 bg-[#00a912] hover:bg-[#00a912]" 
+              : "w-full flex gap-2 font-nauman-regular"
+            }             
             type="submit"
             disabled={isLoading}
           >

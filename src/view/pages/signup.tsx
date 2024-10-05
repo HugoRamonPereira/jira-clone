@@ -16,7 +16,7 @@ import { UserPlus, User, Mail, Lock, CircleX } from "lucide-react";
 import { InputPassword } from "../../components/ui/input-password";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Spinner } from "../components/spinner/spinner";
+import { Spinner } from "../components/spinner";
 import { signUp } from "../../services/sign-up";
 import { GreenCheck } from "../../assets/illustrations/green-check";
 

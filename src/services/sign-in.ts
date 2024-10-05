@@ -15,8 +15,8 @@ export async function signIn({ email, password }: SignInProps) {
   });
 
   if (response.status === 200) {
-    toast.success('You have successfully logged in', {
-      position: 'top-right'
+    toast.success("You have successfully logged in", {
+      position: "top-right"
     })
     return response.json();
   } else {

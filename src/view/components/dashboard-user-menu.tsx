@@ -5,15 +5,13 @@ import {
   DropdownMenuGroup, 
   DropdownMenuItem, 
   DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuShortcut, 
+  DropdownMenuSeparator,
   DropdownMenuTrigger 
 } from "../../components/ui/dropdown-menu";
 
 interface DashboardMenuItem {
   icon: React.ReactNode;
   text: string;
-  shortcut: string;
 }
 
 interface DashboardUserMenuProps {
@@ -35,7 +33,9 @@ export function DashboardUserMenu({
 }: DashboardUserMenuProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        className="focus-visible:outline focus-visible:outline-yellow-400 rounded-full hover:bg-green-300 transition-colors duration-200 py-2 px-2.5"
+      >
         <div className="flex gap-2">
           <Avatar>
             <AvatarImage src={avatar} />
@@ -47,22 +47,21 @@ export function DashboardUserMenu({
           </div>
         </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="w-40" align="start"> 
         <DropdownMenuLabel>
-          {label}
+          <p className="font-nauman-demi-bold">
+            {label}
+          </p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="flex flex-col gap-1">
           {items.map((item, index) => (
             <DropdownMenuItem
               key={index}
               className="flex gap-2 font-nauman-demi-bold"
             >
               {item.icon}
-              <span>{item.text}</span>
-              <DropdownMenuShortcut>
-                {item.shortcut}
-              </DropdownMenuShortcut>
+              <span className="font-nauman-regular">{item.text}</span>
             </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>

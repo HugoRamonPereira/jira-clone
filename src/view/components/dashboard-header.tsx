@@ -1,24 +1,24 @@
-import { AlarmClock, Bell, CalendarDays, Headphones, LockKeyhole, MapPin, Settings, Trash2 } from "lucide-react";
+import { AlarmClock, Bell, CalendarDays, Headphones, LockKeyhole, LogOut, MapPin, Settings, Trash2, User } from "lucide-react";
 import { IconButton } from "./icon-button";
 import { Search } from "./search";
 import { DashboardUserMenu } from "./dashboard-user-menu";
 
 export function DashboardHeader() {
   const iconButtonNotificationItems = [
-    { icon: <AlarmClock size={20} strokeWidth={1.3} />, text: 'Alarm', shortcut: '⌘A' },
-    { icon: <CalendarDays size={20} strokeWidth={1.3} />, text: 'Calendar', shortcut: '⌘C' },
-    { icon: <Trash2 size={20} strokeWidth={1.3} />, text: 'Delete', shortcut: '⌘D' },
+    { icon: <AlarmClock size={20} strokeWidth={1.3} />, text: 'Alarm'},
+    { icon: <CalendarDays size={20} strokeWidth={1.3} />, text: 'Calendar'},
+    { icon: <Trash2 size={20} strokeWidth={1.3} />, text: 'Delete'},
   ]
 
   const iconButtonSettingsItems = [
-    { icon: <MapPin size={20} strokeWidth={1.3} />, text: 'Location', shortcut: '⌘L' },
-    { icon: <LockKeyhole size={20} strokeWidth={1.3} />, text: 'Protect', shortcut: '⌘P' },
-    { icon: <Headphones size={20} strokeWidth={1.3} />, text: 'Audio', shortcut: '⌘A' },
+    { icon: <MapPin size={20} strokeWidth={1.3} />, text: 'Location'},
+    { icon: <LockKeyhole size={20} strokeWidth={1.3} />, text: 'Protect'},
+    { icon: <Headphones size={20} strokeWidth={1.3} />, text: 'Audio'},
   ]
 
   const UserMenuItems = [
-    { icon: <MapPin size={20} strokeWidth={1.3} />, text: 'Location', shortcut: '⌘L' },
-    { icon: <LockKeyhole size={20} strokeWidth={1.3} />, text: 'Protect', shortcut: '⌘P' },
+    { icon: <User size={20} strokeWidth={1.3} />, text: 'Profile'},
+    { icon: <LogOut size={20} strokeWidth={1.3} />, text: 'Sign out'},
   ]
 
   return (
@@ -34,18 +34,18 @@ export function DashboardHeader() {
           items={iconButtonNotificationItems}
           label="Notifications"
         >
-          <Bell />
+          <Bell strokeWidth={1.5} />
         </IconButton>
         <IconButton 
           items={iconButtonSettingsItems}
           label="Settings"
         >
-          <Settings /> 
+          <Settings strokeWidth={1.5} /> 
         </IconButton>
         <DashboardUserMenu
           avatar="https://github.com/HugoRamonPereira.png"
           avatarFallback="HR"
-          label="User Menu"
+          label="User menu"
           items={UserMenuItems}
           role="Administrator"
           username="Hugo Ramon"

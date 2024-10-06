@@ -15,8 +15,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
+  CommandSeparator
 } from "../../components/ui/command"
 import { useEffect, useState } from "react"
 import { Button } from "../../components/ui/button"
@@ -80,17 +79,14 @@ export function Search() {
               <CommandItem>
                 <User className="mr-2 h-4 w-4" />
                 <span>Profile</span>
-                <CommandShortcut>⌘P</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <CreditCard className="mr-2 h-4 w-4" />
                 <span>Billing</span>
-                <CommandShortcut>⌘B</CommandShortcut>
               </CommandItem>
               <CommandItem>
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Settings</span>
-                <CommandShortcut>⌘S</CommandShortcut>
               </CommandItem>
             </CommandGroup>
           </CommandList>

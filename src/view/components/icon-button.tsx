@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Button } from "../../components/ui/button";
+// import { Button } from "../../components/ui/button";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -7,14 +7,12 @@ import {
   DropdownMenuItem, 
   DropdownMenuLabel, 
   DropdownMenuSeparator, 
-  DropdownMenuShortcut, 
   DropdownMenuTrigger 
 } from "../../components/ui/dropdown-menu";
 
 interface ButtonItem {
   icon: React.ReactNode;
   text: string;
-  shortcut: string;
 }
 
 interface IconButtonProps extends PropsWithChildren {
@@ -25,17 +23,19 @@ interface IconButtonProps extends PropsWithChildren {
 export function IconButton({ children, label, items }: IconButtonProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <Button variant="ghost" className="rounded-full px-1.5">
+      <DropdownMenuTrigger 
+        className="focus-visible:outline focus-visible:outline-yellow-400 rounded-full hover:bg-green-300 transition-colors duration-200"
+      >
+        <div className="p-2">
           {children}
-        </Button>
+        </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-44 font-n">
+      <DropdownMenuContent align="start">
         <DropdownMenuLabel className="font-nauman-demi-bold tracking-wide">
           {label}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuGroup>
+        <DropdownMenuGroup className="flex flex-col gap-1">
           {items.map((item, index) => (
             <DropdownMenuItem 
               key={index}
@@ -43,9 +43,6 @@ export function IconButton({ children, label, items }: IconButtonProps) {
             >
               {item.icon}
               <span className="mt-0.5">{item.text}</span>
-              <DropdownMenuShortcut>
-                {item.shortcut}
-              </DropdownMenuShortcut>
             </DropdownMenuItem>
           ))}
         </DropdownMenuGroup>
